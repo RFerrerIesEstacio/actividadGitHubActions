@@ -1,0 +1,20 @@
+name: main_workflow
+on:
+  push:
+    branches: [nodejs_linter_job]
+
+jobs:
+  build:
+    name: linter_execution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          DEFAULT_BRANCH: nodejs_linter_job
+          LINTER_RULES_PATH: /    
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
