@@ -1,7 +1,7 @@
 name: main_workflow
 on:
   push:
-    branches: [nodejs_linter_job]
+    branches: [nodejs_nodeversions_job]
 
 jobs:
   linter-job:
