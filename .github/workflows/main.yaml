@@ -1,0 +1,34 @@
+name: main
+
+on: push
+jobs:
+  prepare-react:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: run npm
+        run: npm install && npm run build
+      
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: build/
+  
+  deploy-react:
+    runs-on: ubuntu-latest
+    needs: prepare-react
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v2
+        with:
+          name: build-artifact
+      - name: Deploy surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: ${{secrets.surge_domain}}
+          project: '.'
+          login: ${secrets.surge_login}
+          token: ${secrets.surge_token}
