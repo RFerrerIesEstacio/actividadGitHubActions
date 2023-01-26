@@ -1,0 +1,15 @@
+name: 'Bot telegram'
+description: 'Bot telegram notifier'
+inputs:
+  chat-id: 
+    description: 'Chat where message will be send'
+    required: true
+  token:
+    description: 'Token bot'
+    required: true
+outputs:
+  message-status:
+    description: "Message status"
+runs:
+  using: "node12"
+  main: "dist/index.js"
