@@ -1,0 +1,14 @@
+name: 'ChangeReadme'
+description: 'Modify readme with memes'
+inputs:
+  frase_positiva: 
+    description: 'Frase positiva'
+    required: true
+  frase_negativa:
+    description: 'Frase negativa'
+outputs:
+  exit-status:
+    description: "Exit status"
+runs:
+  using: "node16"
+  main: "dist/index.js"

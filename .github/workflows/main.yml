@@ -1,27 +1,39 @@
 name: main_workflow
 on:
   push:
-    branches: [nodejs_jest_job]
+    branches: [readme-job]
 
 jobs:
-  linter-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          DEFAULT_BRANCH: nodejs_linter_job
-          LINTER_RULES_PATH: /    
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   jest_job:
     runs-on: ubuntu-latest
-    needs: linter-job
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
       - name: Jest Test
         run: npm install && npm run test
+  modify-readme:
+    runs-on: ubuntu-latest
+    needs: jest-job
+    if: ${{ always() }}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: deps
+        run: sudo apt-get install -y graphicsmagick
+
+      - uses: ./.github/actions/change-readme/
+        with:
+          frase_positiva: 'Los tests han funcionado'
+          frase_negativa: 'Los tests han fallado'
+          resultado_tests: ${{ needs.jest-job.result }}
+
+      - name: Push
+        run: |
+          git config user.email "rafaferrer@github.com"
+          git config user.name "rafaferrer"
+          git add .
+          git commit -m "Readme practica"
+          git remote set-url origin https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions/settings/secrets/actions
+          git push
+      
