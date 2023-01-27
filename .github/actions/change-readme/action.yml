@@ -6,6 +6,8 @@ inputs:
     required: true
   frase_negativa:
     description: 'Frase negativa'
+  resultado_tests:
+    description: 'Resultado del job anterior'
 outputs:
   exit-status:
     description: "Exit status"

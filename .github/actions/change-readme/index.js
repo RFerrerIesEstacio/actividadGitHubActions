@@ -1,6 +1,6 @@
 const fs = require('fs');
-const {meme} = require('meme-maker');
 const core = require('@actions/core');
+const memeMaker = require('meme-maker')
 
 const result = core.getInput('resultado-tests');
 const imagePath = (result === 'success' ? '.github/actions/change-readme/img/good.jpg' : '.github/actions/change-readme/img/bad.jpg');
@@ -9,7 +9,6 @@ const topText = test_results === 'success' ? core.getInput('frase_positiva').toU
 const bottomText = 'Y LO SABES';
 
 
-let memeMaker = require('meme-maker')
 
 let options = {
   image: imagePath,
