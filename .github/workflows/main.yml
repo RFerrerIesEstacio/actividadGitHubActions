@@ -27,7 +27,7 @@ jobs:
         with:
           frase_positiva: 'Los tests han funcionado'
           frase_negativa: 'Los tests han fallado'
-          resultado_tests: ${{ needs.jest-job.result }}
+          resultado_tests: ${{ needs.jest_job.result }}
 
       - name: Push
         run: |
