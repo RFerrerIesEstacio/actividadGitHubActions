@@ -34,6 +34,6 @@ jobs:
           git config user.name "rafaferrer"
           git add .
           git commit -m "Readme practica"
-          git remote set-url origin https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions
-          git push
+          git remote set-url origin https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions/
+          git push origin readme-job
       
