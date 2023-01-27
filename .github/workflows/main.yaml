@@ -1,4 +1,4 @@
-name: Send telegram
+name: Send telegram message
 
 on: [push]
 jobs:
