@@ -8308,7 +8308,7 @@ const bottomText = 'Y LO SABES';
 
 let options = {
   image: imagePath,
-  outfile: '.github/actions/change-redame/outputImg/' + outPutName,
+  outfile: '.github/actions/change-readme/outputImg/' + outPutName,
   topText: topText,
   bottomText: bottomText,
   fontSize: 30,
