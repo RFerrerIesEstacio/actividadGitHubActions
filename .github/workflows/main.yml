@@ -35,6 +35,7 @@ jobs:
           git config user.name "RFerrerIesEstacio"
           git add .
           git commit -m "Readme practica"
+          git log --no-pager 
           echo token: ${{ secrets.GIT_TOKEN }}
           git push https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions/
       
