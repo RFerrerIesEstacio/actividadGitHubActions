@@ -8295,17 +8295,16 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const fs = __nccwpck_require__(7147);
-const {meme} = __nccwpck_require__(4989);
 const core = __nccwpck_require__(3453);
+const memeMaker = __nccwpck_require__(4989)
 
 const result = core.getInput('resultado-tests');
 const imagePath = (result === 'success' ? '.github/actions/change-readme/img/good.jpg' : '.github/actions/change-readme/img/bad.jpg');
 const outPutName = (Math.random() + 1).toString(36).substring(7);
-const topText = test_results === 'success' ? core.getInput('frase_positiva').toUpperCase() : core.getInput('frase_negativa').toUpperCase();
+const topText = result === 'success' ? core.getInput('frase_positiva').toUpperCase() : core.getInput('frase_negativa').toUpperCase();
 const bottomText = 'Y LO SABES';
 
 
-let memeMaker = __nccwpck_require__(4989)
 
 let options = {
   image: imagePath,
