@@ -20,7 +20,7 @@ let options = {
 }
 
 memeMaker(options, function(err) {
-  if(e) throw new Error(err)
+  if(err) throw new Error(err)
   console.log('Image saved: ' + options.outfile);
   fs.appendFileSync('README.md',  `![alt text](https://github.com/RFerrerIesEstacio/actividadGitHubActions/blob/readme-job/.github/actions/change-readme/outputImage/${outPutName}?raw=true)\n`);
   core.setOutput('exit-status', 'Meme añadido al readme');
