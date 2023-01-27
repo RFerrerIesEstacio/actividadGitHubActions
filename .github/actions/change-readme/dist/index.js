@@ -8299,6 +8299,7 @@ const core = __nccwpck_require__(3453);
 const memeMaker = __nccwpck_require__(4989)
 
 const result = core.getInput('resultado-tests');
+console.log('result: ', result);
 const imagePath = (result === 'success' ? '.github/actions/change-readme/img/good.jpg' : '.github/actions/change-readme/img/bad.jpg');
 const outPutName = (Math.random() + 1).toString(36).substring(7) + '.jpg';
 const topText = result === 'success' ? core.getInput('frase_positiva').toUpperCase() : core.getInput('frase_negativa').toUpperCase();

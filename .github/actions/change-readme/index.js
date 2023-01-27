@@ -3,6 +3,7 @@ const core = require('@actions/core');
 const memeMaker = require('meme-maker')
 
 const result = core.getInput('resultado-tests');
+console.log('result: ', result);
 const imagePath = (result === 'success' ? '.github/actions/change-readme/img/good.jpg' : '.github/actions/change-readme/img/bad.jpg');
 const outPutName = (Math.random() + 1).toString(36).substring(7) + '.jpg';
 const topText = result === 'success' ? core.getInput('frase_positiva').toUpperCase() : core.getInput('frase_negativa').toUpperCase();
