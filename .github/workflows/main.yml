@@ -3,7 +3,7 @@ name: main_workflow
 on:
   push:
     branches: [readme-job]
-
+ 
 jobs:
   jest_job:
     runs-on: ubuntu-latest
@@ -31,10 +31,9 @@ jobs:
 
       - name: Push
         run: |
-          git config user.email "rafaferrer@github.com"
-          git config user.name "rafaferrer"
+          git config user.email "rafaelferreralcaraz@github.com"
+          git config user.name "RFerrerIesEstacio"
           git add .
           git commit -m "Readme practica"
-          git remote set-url origin https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions/
-          git push origin readme-job
+          git push https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions/
       
