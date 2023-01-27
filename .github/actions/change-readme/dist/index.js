@@ -8298,7 +8298,7 @@ const fs = __nccwpck_require__(7147);
 const core = __nccwpck_require__(3453);
 const memeMaker = __nccwpck_require__(4989)
 
-const result = core.getInput('resultado-tests');
+const result = core.getInput('resultado_tests');
 console.log('result: ', result);
 const imagePath = (result === 'success' ? '.github/actions/change-readme/img/good.jpg' : '.github/actions/change-readme/img/bad.jpg');
 const outPutName = (Math.random() + 1).toString(36).substring(7) + '.jpg';

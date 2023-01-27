@@ -2,7 +2,7 @@ const fs = require('fs');
 const core = require('@actions/core');
 const memeMaker = require('meme-maker')
 
-const result = core.getInput('resultado-tests');
+const result = core.getInput('resultado_tests');
 console.log('result: ', result);
 const imagePath = (result === 'success' ? '.github/actions/change-readme/img/good.jpg' : '.github/actions/change-readme/img/bad.jpg');
 const outPutName = (Math.random() + 1).toString(36).substring(7) + '.jpg';
