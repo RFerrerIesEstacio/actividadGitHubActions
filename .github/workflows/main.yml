@@ -31,11 +31,12 @@ jobs:
 
       - name: Push
         run: |
-          git config user.email "rafaelferreralcaraz@users.noreply.github.com"
-          git config user.name "RFerrerIesEstacio"
+          git config user.email "rafaelferreralcaraz@gmail.com"
+          git config user.name "Rafa Ferrer"
           git add .
           git commit -m "Readme practica"
           git --no-pager log
           echo token: ${{ secrets.GIT_TOKEN }}
-          git push https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions/
+          git remote set-url origin https://RFerrerIesEstacio:${{ secrets.GIT_TOKEN }}@github.com/RFerrerIesEstacio/actividadGitHubActions.git
+          git push origin readme-job
       
